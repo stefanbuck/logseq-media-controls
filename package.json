@@ -1,0 +1,21 @@
+{
+  "name": "logseq-media-controls",
+  "version": "0.0.1",
+  "author": "Stefan Buck",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel ./index.html --public-url ./",
+    "build": "parcel build --public-url . --no-source-maps index.html"
+  },
+  "dependencies": {
+    "@logseq/libs": "^0.0.1-alpha.35"
+  },
+  "logseq": {
+    "main": "dist/index.html",
+    "icon": "./icon.png",
+    "id": "_stefanbuck-logseq-media-controls"
+  },
+  "devDependencies": {
+    "parcel": "^2.4.1"
+  }
+}
