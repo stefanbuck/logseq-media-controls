@@ -31,7 +31,7 @@ async function main() {
 
     logseq.Editor.registerSlashCommand('Insert Media Controls', async () => {
         await logseq.Editor.insertAtEditingCursor(
-            `{{renderer: media_controls}}`,
+            `{{renderer :media_controls}}`,
         )
     })
 

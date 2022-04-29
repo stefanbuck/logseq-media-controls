@@ -15,7 +15,7 @@ Type `/` and then `Insert media controls`
 or past the following snippet
 
 ```
-{{renderer: media_controls}}
+{{renderer :media_controls}}
 ```
 
 ## Example
