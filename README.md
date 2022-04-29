@@ -1,6 +1,6 @@
 # logseq-media-controls
 
-Video and audio controls made for [Logseq](https://logseq.com)
+YouTube, video and audio controls made for [Logseq](https://logseq.com)
 
 ![](./screenshot.png)
 
@@ -35,4 +35,4 @@ or past the following snippet
 
 ## Known limitation
 
-- Does not work with YouTube or any other video embeded using `iframes`
+- Does not work with video embeded using `iframes` except YouTube.

@@ -20,12 +20,21 @@ export function findMediaElement(refEl) {
 function findMediaElementIn(root, pred) {
     if (root == null) return null
 
+    const iframeElements = Array.from(root.getElementsByTagName("iframe"))
     const videoElements = Array.from(root.getElementsByTagName("video"))
     const audioElements = Array.from(root.getElementsByTagName("audio"))
 
     let video = null
     let audio = null
+    let youtube = null
 
+    for (let i = iframeElements.length - 1; i >= 0; i--) {
+        const el = iframeElements[i]
+        if (el.src.startsWith("https://www.youtube.com/embed/") && pred(el)) {
+            youtube = el
+            break
+        }
+    }
     for (let i = videoElements.length - 1; i >= 0; i--) {
         const el = videoElements[i]
         if (pred(el)) {
@@ -41,7 +50,7 @@ function findMediaElementIn(root, pred) {
         }
     }
 
-    const elements = [video, audio]
+    const elements = [youtube, video, audio]
     let closest = null
     for (const el of elements) {
         if (el == null) continue

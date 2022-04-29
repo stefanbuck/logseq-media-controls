@@ -38,29 +38,45 @@ async function main() {
     logseq.provideModel({
         async forward(e: any) {
             const { slotId } = e.dataset
-            const el = parent.document.getElementById(slotId)
+            const slotEl = parent.document.getElementById(slotId)
 
-            const audio = findMediaElement(el);
-            audio.currentTime += 10;
+            const el = findMediaElement(slotEl);
+
+            if (el.tagName === 'IFRAME') {
+                const player = parent.window.YT.get(el.id)
+                player.seekTo(player.getCurrentTime() + 10)
+            } else {
+                el.currentTime += 10;
+            }
         },
         async backward(e: any) {
             const { slotId } = e.dataset
-            const el = parent.document.getElementById(slotId)
+            const slotEl = parent.document.getElementById(slotId)
 
-            const audio = findMediaElement(el);
-            audio.currentTime -= 10;
+            const el = findMediaElement(slotEl);
+            if (el.tagName === 'IFRAME') {
+                const player = parent.window.YT.get(el.id)
+                player.seekTo(player.getCurrentTime() - 10)
+            } else {
+                el.currentTime -= 10;
+            }
         },
         async changePlaybackRate(e: any) {
             const { slotId } = e.dataset
-            const el = parent.document.getElementById(slotId)
-            const audio = findMediaElement(el);
+            const slotEl = parent.document.getElementById(slotId)
+            const el = findMediaElement(slotEl);
 
             playbackSpeedIndex++;
             if (playbackSpeedIndex >= playbackSpeed.length) {
                 playbackSpeedIndex = 0;
             }
 
-            audio.playbackRate = playbackSpeed[playbackSpeedIndex];
+            if (el.tagName === 'IFRAME') {
+                const player = parent.window.YT.get(el.id)
+                player.setPlaybackRate(playbackSpeed[playbackSpeedIndex])
+            } else {
+                el.playbackRate = playbackSpeed[playbackSpeedIndex];
+            }
             _render(slotId, playbackSpeed[playbackSpeedIndex])
         },
     })
