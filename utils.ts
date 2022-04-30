@@ -30,7 +30,7 @@ function findMediaElementIn(root, pred) {
 
     for (let i = iframeElements.length - 1; i >= 0; i--) {
         const el = iframeElements[i]
-        if (el.src.startsWith("https://www.youtube.com/embed/") && pred(el)) {
+        if (el.id.startsWith('youtube-player-') && pred(el)) {
             youtube = el
             break
         }
