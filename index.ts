@@ -16,7 +16,7 @@ const iconPlay = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fi
 
 function _render(slot, speed, paused = false) {
     logseq.provideUI({
-        key: "media_controls",
+        key: `media_controls_${slot}`,
         slot,
         reset: true,
         template: `
