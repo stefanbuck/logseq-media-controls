@@ -1,7 +1,7 @@
 import '@logseq/libs'
 import { findMediaElement } from './utils'
 
-const playbackSpeed = [0.8, 0.9, 1.0, 1.1, 1.25, 1.5, 1.75, 2.0]
+const playbackSpeed = [0.8, 0.9, 1.0, 1.1, 1.25, 1.5, 1.75, 2.0, 2.5, 3.0, 3.5, 4.0]
 
 const styleSheet = `
 .media-controls button:hover {
